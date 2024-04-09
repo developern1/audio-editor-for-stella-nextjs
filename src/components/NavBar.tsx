@@ -110,7 +110,7 @@ export default function NavBAr() {
               visible={true}
             />
             <Typography color={mode === 'light' ? dark : light}>
-              React-Studio
+              First Lover
             </Typography>
           </Stack>
           <Stack
@@ -152,7 +152,7 @@ export default function NavBAr() {
             <Button onClick={showDemo}>Load Demo</Button>
           )}
           <ModeSwitch />
-          <IconButton onClick={() => window.open('https://github.com/TareqFl')}>
+          {/* <IconButton onClick={() => window.open('https://github.com/TareqFl')}>
             <GitHub
               fontSize="large"
               sx={{
@@ -160,7 +160,7 @@ export default function NavBAr() {
                 ':hover': { scale: '1.5', transition: '.35s' },
               }}
             />
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
       </AppBar>
     </Box>
