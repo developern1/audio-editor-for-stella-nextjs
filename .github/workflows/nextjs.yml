@@ -9,15 +9,15 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
+      - name: Install and Build
         run: |
           yarn install
           yarn build && touch ./out/.nojekyll
 
-      - name: Deploy 🚀
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # github page를 서비스 할 branch 입니다.
