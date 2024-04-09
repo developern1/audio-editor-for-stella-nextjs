@@ -1,8 +1,8 @@
 {
-  "name": "next-studio-js-next",
+  "name": "audio-editor-for-stella-nextjs",
   "description": "Multiple track web audio editor and player with waveform preview and annotation.",
   "version": "0.1.0",
-  "website": "https://tareqfl.github.io/react-studio-js-next",
+  "website": "https://developern1.github.io/audio-editor-for-stella-nextjs",
   "private": true,
   "scripts": {
     "dev": "next dev",
