@@ -41,7 +41,7 @@ type TInitialState = {
   setDialogBox: (value: boolean) => void;
 };
 const initialState: TInitialState = {
-  podcast: 'Podcast',
+  podcast: 'Audio Editor for Stella',
   theme: {
     mode: 'dark',
     backgroundColor: dark,
