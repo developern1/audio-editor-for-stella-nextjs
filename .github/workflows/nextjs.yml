@@ -1,24 +1,44 @@
-name: GitHub Pages Deploy
+name: Deploy
 
 on:
   push:
     branches:
-      - main # push를 감지할 대상 branch 입니다.
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Install and Build
-        run: |
-          yarn install
-          yarn build && touch ./out/.nojekyll
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages # github page를 서비스 할 branch 입니다.
-          folder: out
+    - name: Install
+      run: npm ci
+
+    - name: Build
+      run: npm run build
+
+    # Next 14에서는 이 액션을 제거합니다.
+    - name: Export
+      run: npm run export
+
+    - run: touch out/.nojekyll
+
+    - name: Deploy (Client)
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages  # 배포될 브랜치
+        folder: out
+        clean: true
