@@ -42,3 +42,4 @@ jobs:
         branch: gh-pages  # 배포될 브랜치
         folder: out
         clean: true
+        
